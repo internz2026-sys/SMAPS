@@ -1,0 +1,24 @@
+/* SMAPS design tokens — source of truth: smaps-landing/css/styles.css */
+:root {
+  --navy:         #0F2447;
+  --action:       #1D5FBF;
+  --action-hover: #164A96;
+  --tint:         #E8F0FC;
+  --bg:           #FDFDFC;
+  --ink:          #141D2E;
+  --gray-1:       #4A5A75; /* body gray */
+  --gray-2:       #5B6B85; /* secondary gray */
+  --gray-3:       #9AA7BC; /* muted gray */
+  --border:       #E5E9F0;
+  --input-border: #C9D3E2;
+  --error-text:   #B4232A;
+  --error-bg:     #FBEDEE;
+  --trust-label:  #B9C7DE;
+
+  --font-heading: 'Source Serif 4', Georgia, serif;
+  --font-body:    'Public Sans', system-ui, -apple-system, sans-serif;
+
+  --maxw: 1240px;
+  --pad:  40px;
+  --radius: 3px;
+}

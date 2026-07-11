@@ -1,0 +1,144 @@
+<!-- @dsCard group="Sections" -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMAPS — Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0F2447; --action:#1D5FBF; --action-hover:#164A96; --tint:#E8F0FC;
+      --bg:#FDFDFC; --ink:#141D2E; --gray-2:#5B6B85;
+      --font-heading:'Source Serif 4', Georgia, serif;
+      --font-body:'Public Sans', system-ui, -apple-system, sans-serif;
+      --maxw:1240px; --pad:40px; --radius:3px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      font-family: var(--font-body);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      padding: 40px;
+    }
+    a { color: var(--action); text-decoration: none; }
+
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 20px; }
+    .btn { display: inline-block; border-radius: var(--radius); letter-spacing: 0.3px; font-weight: 700; }
+
+    .hero { position: relative; height: 92vh; min-height: 640px; background: var(--navy); }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 88px),
+        repeating-linear-gradient(0deg,  rgba(255,255,255,0.03)  0 1px, transparent 1px 88px),
+        radial-gradient(130% 90% at 78% 12%, rgba(29,95,191,0.38) 0%, rgba(15,36,71,0) 58%),
+        linear-gradient(180deg, #143059 0%, #0F2447 58%, #0a1a34 100%);
+    }
+    .hero-scrim {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,20,40,0.55) 0%, rgba(10,20,40,0.15) 45%, rgba(10,20,40,0.62) 100%);
+      pointer-events: none;
+    }
+    .hero-header { position: absolute; top: 0; left: 0; right: 0; z-index: 5; pointer-events: none; }
+    .hero-header-inner {
+      max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
+      height: 84px; display: flex; align-items: center; gap: 40px; pointer-events: auto;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; }
+    .brand-mark {
+      width: 34px; height: 34px; border-radius: 8px; background: #fff; color: var(--navy);
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;
+      font-family: var(--font-heading);
+    }
+    .brand-name { font-weight: 700; font-size: 17px; color: #fff; letter-spacing: 0.4px; }
+    .nav { display: flex; gap: 30px; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; }
+    .nav-link { color: rgba(255,255,255,0.85); font-weight: 600; }
+    .nav-link:hover { color: #fff; }
+    .hero-header-actions { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+    .btn-white { background: #fff; color: var(--navy); font-size: 13px; padding: 11px 22px; }
+    .btn-white:hover { background: var(--tint); color: var(--navy); }
+
+    .hero-copy-wrap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; pointer-events: none; }
+    .hero-copy-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) 72px; }
+    .hero-copy { max-width: 720px; }
+    .hero-eyebrow { color: rgba(255,255,255,0.75); }
+    .hero-h1 {
+      font-family: var(--font-heading); font-size: 60px; line-height: 1.08; font-weight: 600;
+      color: #fff; margin: 0 0 22px; letter-spacing: -0.5px; text-wrap: balance;
+    }
+    .hero-sub {
+      font-size: 17px; line-height: 1.65; color: rgba(255,255,255,0.88);
+      margin: 0 0 32px; max-width: 540px; text-wrap: pretty;
+    }
+    .hero-actions { display: flex; gap: 14px; pointer-events: auto; }
+    .btn-primary { background: var(--action); color: #fff; font-size: 14px; padding: 15px 32px; }
+    .btn-primary:hover { background: var(--action-hover); color: #fff; }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.5); color: #fff; font-size: 14px; padding: 15px 32px; }
+    .btn-ghost:hover { border-color: #fff; color: #fff; }
+
+    :focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
+    .hero .nav-link:focus-visible, .btn-ghost:focus-visible { outline-color: #fff; }
+
+    @media (max-width: 1024px) {
+      :root { --pad: 28px; }
+      .hero-h1 { font-size: clamp(38px, 6.5vw, 60px); }
+    }
+    @media (max-width: 860px) {
+      .nav { display: none; }
+      .hero-header-inner { gap: 20px; }
+    }
+    @media (max-width: 680px) {
+      :root { --pad: 20px; }
+      body { padding: 20px; }
+      .hero { min-height: 560px; }
+      .hero-copy-inner { padding: 0 var(--pad) 48px; }
+      .hero-actions { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-scrim"></div>
+
+    <header class="hero-header">
+      <div class="hero-header-inner">
+        <div class="brand">
+          <div class="brand-mark">S</div>
+          <div class="brand-name">SMAPS</div>
+        </div>
+        <nav class="nav">
+          <a href="#modules" class="nav-link">Platform</a>
+          <a href="#parents" class="nav-link">Families</a>
+          <a href="#trust" class="nav-link">Results</a>
+        </nav>
+        <div class="hero-header-actions">
+          <a href="https://smaps-sis.base44.app" target="_blank" rel="noopener" class="nav-link">Sign in</a>
+          <a href="#demo" class="btn btn-white">Request a demo</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero-copy-wrap">
+      <div class="hero-copy-inner">
+        <div class="hero-copy">
+          <div class="eyebrow hero-eyebrow">School Management AI Powered System</div>
+          <h1 class="hero-h1">The quiet system behind a well-run school</h1>
+          <p class="hero-sub">Enrollment, academics, grading, finance, and family communication — unified in one platform, so your staff can focus on students.</p>
+          <div class="hero-actions">
+            <a href="#demo" class="btn btn-primary">Request a demo</a>
+            <a href="https://smaps-sis.base44.app" target="_blank" rel="noopener" class="btn btn-ghost">Explore the product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

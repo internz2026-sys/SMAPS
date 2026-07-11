@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Public Sans, system-ui, sans-serif">
+  <rect width="640" height="360" fill="#FDFDFC"/>
+  <!-- header -->
+  <rect x="0" y="0" width="640" height="52" fill="#FFFFFF"/>
+  <line x1="0" y1="52" x2="640" y2="52" stroke="#E5E9F0" stroke-width="1"/>
+  <rect x="24" y="17" width="18" height="18" rx="5" fill="#0F2447"/>
+  <text x="33" y="30" text-anchor="middle" fill="#fff" font-size="10" font-weight="700" font-family="Source Serif 4, serif">S</text>
+  <text x="52" y="30" fill="#141D2E" font-size="15" font-weight="700">Student Ledger &amp; Cash</text>
+
+  <!-- stat card A -->
+  <rect x="24" y="66" width="180" height="66" rx="5" fill="#0F2447"/>
+  <text x="40" y="90" fill="#B9C7DE" font-size="10" font-weight="600">Collected this SY</text>
+  <text x="40" y="114" fill="#FFFFFF" font-size="22" font-weight="700" font-family="Source Serif 4, serif">&#8369;1.24M</text>
+
+  <!-- stat card B -->
+  <rect x="214" y="66" width="180" height="66" rx="5" fill="#FFFFFF" stroke="#E5E9F0"/>
+  <text x="230" y="90" fill="#5B6B85" font-size="10" font-weight="600">Outstanding</text>
+  <text x="230" y="114" fill="#141D2E" font-size="22" font-weight="700" font-family="Source Serif 4, serif">&#8369;210K</text>
+
+  <!-- donut card -->
+  <rect x="404" y="66" width="212" height="66" rx="5" fill="#FFFFFF" stroke="#E5E9F0"/>
+  <circle cx="446" cy="99" r="22" fill="none" stroke="#E5E9F0" stroke-width="8"/>
+  <circle cx="446" cy="99" r="22" fill="none" stroke="#1D5FBF" stroke-width="8" stroke-linecap="round" stroke-dasharray="117.5 138.2" transform="rotate(-90 446 99)"/>
+  <text x="446" y="103" text-anchor="middle" fill="#0F2447" font-size="12" font-weight="700">85%</text>
+  <text x="484" y="94" fill="#141D2E" font-size="12" font-weight="700">Collection rate</text>
+  <text x="484" y="110" fill="#9AA7BC" font-size="10">of billed tuition</text>
+
+  <!-- ledger table header -->
+  <text x="24" y="164" fill="#9AA7BC" font-size="9" font-weight="700" letter-spacing="1">DATE</text>
+  <text x="110" y="164" fill="#9AA7BC" font-size="9" font-weight="700" letter-spacing="1">DESCRIPTION</text>
+  <text x="392" y="164" text-anchor="end" fill="#9AA7BC" font-size="9" font-weight="700" letter-spacing="1">CHARGE</text>
+  <text x="500" y="164" text-anchor="end" fill="#9AA7BC" font-size="9" font-weight="700" letter-spacing="1">PAYMENT</text>
+  <text x="616" y="164" text-anchor="end" fill="#9AA7BC" font-size="9" font-weight="700" letter-spacing="1">BALANCE</text>
+  <line x1="24" y1="174" x2="616" y2="174" stroke="#E5E9F0" stroke-width="1"/>
+
+  <g font-size="11">
+    <!-- r1 -->
+    <text x="24" y="200" fill="#9AA7BC">Jun 03</text>
+    <text x="110" y="200" fill="#141D2E">Tuition — 1st quarter</text>
+    <text x="392" y="200" text-anchor="end" fill="#4A5A75">&#8369;9,500</text>
+    <text x="500" y="200" text-anchor="end" fill="#9AA7BC">—</text>
+    <text x="616" y="200" text-anchor="end" fill="#141D2E" font-weight="600">&#8369;9,500</text>
+    <line x1="24" y1="214" x2="616" y2="214" stroke="#E5E9F0" stroke-width="1"/>
+    <!-- r2 -->
+    <text x="24" y="240" fill="#9AA7BC">Jun 12</text>
+    <text x="110" y="240" fill="#141D2E">Payment — GCash</text>
+    <text x="392" y="240" text-anchor="end" fill="#9AA7BC">—</text>
+    <text x="500" y="240" text-anchor="end" fill="#1D5FBF" font-weight="600">&#8369;5,000</text>
+    <text x="616" y="240" text-anchor="end" fill="#141D2E" font-weight="600">&#8369;4,500</text>
+    <line x1="24" y1="254" x2="616" y2="254" stroke="#E5E9F0" stroke-width="1"/>
+    <!-- r3 -->
+    <text x="24" y="280" fill="#9AA7BC">Jun 20</text>
+    <text x="110" y="280" fill="#141D2E">Sibling discount</text>
+    <text x="392" y="280" text-anchor="end" fill="#4A5A75">-&#8369;500</text>
+    <text x="500" y="280" text-anchor="end" fill="#9AA7BC">—</text>
+    <text x="616" y="280" text-anchor="end" fill="#141D2E" font-weight="600">&#8369;4,000</text>
+    <line x1="24" y1="294" x2="616" y2="294" stroke="#E5E9F0" stroke-width="1"/>
+    <!-- r4 -->
+    <text x="24" y="320" fill="#9AA7BC">Jul 02</text>
+    <text x="110" y="320" fill="#141D2E">Payment — Bank transfer</text>
+    <text x="392" y="320" text-anchor="end" fill="#9AA7BC">—</text>
+    <text x="500" y="320" text-anchor="end" fill="#1D5FBF" font-weight="600">&#8369;2,000</text>
+    <text x="616" y="320" text-anchor="end" fill="#141D2E" font-weight="600">&#8369;2,000</text>
+  </g>
+</svg>
