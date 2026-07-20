@@ -29,6 +29,7 @@
     .brand { display:flex; align-items:center; gap:11px; }
     .mark { width:32px; height:32px; border-radius:7px; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; font-family:var(--serif); flex:none; }
     .brand-name { font-weight:700; font-size:16px; letter-spacing:0.4px; }
+    .brand-logo { height:30px; width:auto; display:block; }
     .site-label { margin-left:auto; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray-3); }
 
     /* article shell */
@@ -89,10 +90,9 @@
 
   <header class="site">
     <div class="site-inner">
-      <div class="brand">
-        <div class="mark">S</div>
-        <span class="brand-name">SMAPS</span>
-      </div>
+      <a class="brand" href="#" aria-label="SMAPS home">
+        <img class="brand-logo" src="assets/logo.png" alt="SMAPS — School Management AI Powered System">
+      </a>
       <div class="site-label">Our Story</div>
     </div>
   </header>

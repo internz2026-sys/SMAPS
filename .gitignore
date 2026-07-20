@@ -13,4 +13,6 @@ Thumbs.db
 *.png
 !assets/**/*.png
 !assets/**/*.jpeg
+!story/**/*.png
+!story/**/*.jpeg
 .playwright-mcp/
