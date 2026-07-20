@@ -197,6 +197,21 @@ input, select { font-family: var(--font-body); }
 }
 .btn-ghost:hover { border-color: #fff; color: #fff; }
 
+/* ============ MOTTO (main brand promise) ============ */
+.motto { max-width: var(--maxw); margin: 0 auto; padding: 90px var(--pad) 0; text-align: center; }
+.motto-line {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4.6vw, 46px);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  margin: 0;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.motto-line .mv { color: var(--action); font-style: italic; }
+@media (max-width: 680px) { .motto { padding-top: 60px; } }
+
 /* ============ STATEMENT ============ */
 .statement {
   max-width: 900px;
