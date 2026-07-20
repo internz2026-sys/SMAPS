@@ -1,9 +1,18 @@
-/* SMAPS demo-request form — vanilla-JS port of the .dc.html DCLogic component.
-   Behavior matches the original exactly: required name/email/school (role optional),
-   inline validation with the same messages, success panel with first-name greeting,
-   and a reset that restores an empty form.
-   NOTE: no backend call — see TODO at submit. */
+/* SMAPS demo-request form.
+   Required name/email/school (role optional), inline validation, then delivery to
+   hdlcruz03@gmail.com via FormSubmit.co (AJAX). Success panel + reset preserved.
+   NOTE (one-time): FormSubmit emails an activation link to that inbox on the FIRST
+   submission — click Activate once, then all future submissions are delivered. */
 (function () {
+  var ENDPOINT = 'https://formsubmit.co/ajax/hdlcruz03@gmail.com';
+  var ROLE_LABELS = {
+    admin: 'School administrator / Principal',
+    registrar: 'Registrar',
+    finance: 'Finance / Accounting',
+    it: 'IT / Operations',
+    teacher: 'Teacher'
+  };
+
   var form        = document.getElementById('demo-form');
   var errorEl     = document.getElementById('form-error');
   var successEl   = document.getElementById('demo-success');
@@ -12,21 +21,21 @@
   var emailEl     = document.getElementById('f-email');
   var schoolEl    = document.getElementById('f-school');
   var roleEl      = document.getElementById('f-role');
+  var honeyEl     = document.getElementById('f-honey');
   var submitBtn   = document.getElementById('demo-submit');
   var resetLink   = document.getElementById('demo-reset');
 
   if (!form || !submitBtn) { return; }
 
-  function clearError() {
-    errorEl.textContent = '';
-    errorEl.hidden = true;
-  }
-  function showError(msg) {
-    errorEl.textContent = msg;
-    errorEl.hidden = false;
+  function clearError() { errorEl.textContent = ''; errorEl.hidden = true; }
+  function showError(msg) { errorEl.textContent = msg; errorEl.hidden = false; }
+  function showSuccess(name) {
+    successName.textContent = name.split(' ')[0] || 'there';
+    clearError();
+    form.hidden = true;
+    successEl.hidden = false;
   }
 
-  // Any edit clears the current error (mirrors the original bind() closure).
   [nameEl, emailEl, schoolEl, roleEl].forEach(function (el) {
     el.addEventListener('input', clearError);
     el.addEventListener('change', clearError);
@@ -36,6 +45,7 @@
     var name   = nameEl.value.trim();
     var email  = emailEl.value.trim();
     var school = schoolEl.value.trim();
+    var role   = roleEl.value;
 
     if (!name || !email || !school) {
       showError('Please fill in your name, email, and school name.');
@@ -45,12 +55,35 @@
       showError('Please enter a valid email address.');
       return;
     }
+    // honeypot: a real person leaves this empty. If filled, treat as spam (no send).
+    if (honeyEl && honeyEl.value) { showSuccess(name); return; }
 
-    // TODO: wire demo-request backend (POST lead → CRM / email). Out of scope for the design pass.
-    successName.textContent = name.split(' ')[0] || 'there';
     clearError();
-    form.hidden = true;
-    successEl.hidden = false;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        school: school,
+        role: ROLE_LABELS[role] || 'Not specified',
+        _subject: 'SMAPS demo request — ' + school,
+        _template: 'table',
+        _captcha: 'false'
+      })
+    }).then(function (res) {
+      if (!res.ok) { throw new Error('HTTP ' + res.status); }
+      return res.json();
+    }).then(function () {
+      showSuccess(name);
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request a demo';
+      showError('Something went wrong sending your request. Please try again.');
+    });
   });
 
   resetLink.addEventListener('click', function () {
@@ -58,6 +91,9 @@
     emailEl.value = '';
     schoolEl.value = '';
     roleEl.value = '';
+    if (honeyEl) honeyEl.value = '';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Request a demo';
     clearError();
     successEl.hidden = true;
     form.hidden = false;

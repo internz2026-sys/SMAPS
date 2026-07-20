@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- enable hero intro animation before first paint (skipped under reduced-motion / no-JS) -->
+  <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-anim');}</script>
 </head>
 <body>
 
@@ -54,23 +56,23 @@
   </section>
 
   <!-- ============ MOTTO ============ -->
-  <section class="motto">
+  <section class="motto reveal">
     <p class="motto-line">We <span class="mv">build</span> it, we <span class="mv">deploy</span> it, we <span class="mv">maintain</span> it.</p>
   </section>
 
   <!-- ============ STATEMENT ============ -->
-  <section class="statement">
+  <section class="statement reveal">
     <div class="eyebrow eyebrow-accent">Why SMAPS</div>
     <h2 class="statement-h2">When enrollment, grades, and payments live in separate tools, your registrar enters the same data three times. SMAPS keeps <em>one record per student</em> — from application to graduation.</h2>
   </section>
 
   <!-- ============ OUR STORY (glimpse + press) ============ -->
   <section class="our-story">
-    <div class="our-story-head">
+    <div class="our-story-head reveal">
       <div class="eyebrow eyebrow-accent">Our Story</div>
       <h2 class="section-h2">Built by interns. Now running their own company.</h2>
     </div>
-    <div class="story-cards">
+    <div class="story-cards reveal-group">
       <a class="story-card" href="story/">
         <div class="sc-media"><img src="story/assets/3.jpg" alt="The team setting up the first computer at the school"></div>
         <div class="sc-body">
@@ -92,11 +94,11 @@
 
   <!-- ============ MODULES (photo cards) ============ -->
   <section id="modules" class="modules">
-    <div class="modules-head">
+    <div class="modules-head reveal">
       <h2 class="section-h2">One platform, every office</h2>
       <div class="modules-note">Each module works on its own and better together — one login, one student record.</div>
     </div>
-    <div class="modules-grid">
+    <div class="modules-grid reveal-group">
 
       <div class="module-card">
         <div class="card-media">
@@ -136,7 +138,7 @@
 
   <!-- ============ CAPABILITIES LIST ============ -->
   <section class="capabilities">
-    <div class="cap-list">
+    <div class="cap-list reveal-group">
       <div class="cap-row">
         <div class="cap-num">01</div>
         <div class="cap-title">School setup</div>
@@ -168,10 +170,10 @@
   <!-- ============ FAMILIES (split photo) ============ -->
   <section id="parents" class="families">
     <div class="families-grid">
-      <div class="families-media">
+      <div class="families-media reveal">
         <img class="media-img" src="assets/img/shot-families.jpg" alt="SMAPS parent portal showing a child's grades, attendance, and balance">
       </div>
-      <div class="families-body">
+      <div class="families-body reveal">
         <div class="eyebrow eyebrow-accent">For families</div>
         <h2 class="families-h2">Parents see progress, not paperwork</h2>
         <p class="families-p">The parent portal gives every family a clear view of grades, attendance, balances, and progress reports — with direct messaging to teachers and staff. Fewer front-desk calls, faster payments, happier families.</p>
@@ -196,21 +198,21 @@
   <!-- ============ TRUST BAND ============ -->
   <section id="trust" class="trust">
     <div class="trust-inner">
-      <div class="trust-grid">
+      <div class="trust-grid reveal-group">
         <div class="trust-stat">
-          <div class="trust-value">1</div>
+          <div class="trust-value" data-count-to="1">1</div>
           <div class="trust-label">record per student, from application to graduation</div>
         </div>
         <div class="trust-stat">
-          <div class="trust-value">6</div>
+          <div class="trust-value" data-count-to="6">6</div>
           <div class="trust-label">integrated modules across every school office</div>
         </div>
         <div class="trust-stat">
-          <div class="trust-value">30 min</div>
+          <div class="trust-value" data-count-to="30" data-count-suffix=" min">30 min</div>
           <div class="trust-label">guided demo tailored to your school size</div>
         </div>
         <div class="trust-stat">
-          <div class="trust-value">100%</div>
+          <div class="trust-value" data-count-to="100" data-count-suffix="%">100%</div>
           <div class="trust-label">of financial transactions logged in the audit trail</div>
         </div>
       </div>
@@ -219,16 +221,16 @@
 
   <!-- ============ SUCCESS STORY ============ -->
   <section class="story">
-    <div class="story-head">
+    <div class="story-head reveal">
       <div class="eyebrow eyebrow-accent">Now deployed</div>
       <blockquote class="story-quote">&ldquo;We are now ready to deploy this system across all parochial schools in Iloilo.&rdquo;</blockquote>
       <div class="story-attr">Saint Michael the Archangel Parochial School · San Miguel, Iloilo</div>
     </div>
-    <figure class="story-photo">
+    <figure class="story-photo reveal">
       <img src="assets/img/deployed-saintmichael.jpg" alt="The SMAPS team with the teachers of Saint Michael the Archangel Parochial School after the system orientation">
       <figcaption>Live at Saint Michael the Archangel Parochial School, San Miguel, Iloilo</figcaption>
     </figure>
-    <div class="story-stats">
+    <div class="story-stats reveal-group">
       <div class="story-stat">
         <div class="story-stat-value">3&ndash;4 days</div>
         <div class="story-stat-label">Enrollment processing, down from 1&ndash;2 weeks</div>
@@ -238,7 +240,7 @@
         <div class="story-stat-label">Report cards issued, down from 2&ndash;3 weeks</div>
       </div>
       <div class="story-stat">
-        <div class="story-stat-value">~30 hrs</div>
+        <div class="story-stat-value" data-count-to="30" data-count-prefix="~" data-count-suffix=" hrs">~30 hrs</div>
         <div class="story-stat-label">Saved per teacher each quarter on grading</div>
       </div>
       <div class="story-stat">
@@ -248,10 +250,56 @@
     </div>
   </section>
 
+  <!-- ============ CALCULATOR ============ -->
+  <section id="calc" class="calc">
+    <div class="calc-head reveal">
+      <div class="eyebrow eyebrow-accent">Do the math</div>
+      <h2 class="section-h2">What does paperwork cost your school?</h2>
+      <p class="calc-intro">Move the sliders to your school's size and watch what SMAPS gives back.</p>
+    </div>
+    <div class="calc-grid reveal">
+      <div class="calc-controls">
+        <div class="calc-field">
+          <div class="calc-label">Teachers <span id="calc-teachers-val" class="calc-num">12</span></div>
+          <input id="calc-teachers" class="calc-slider" type="range" min="1" max="100" value="12" aria-label="Number of teachers">
+          <div class="calc-scale"><span>1</span><span>100</span></div>
+        </div>
+        <div class="calc-field">
+          <div class="calc-label">Students <span id="calc-students-val" class="calc-num">300</span></div>
+          <input id="calc-students" class="calc-slider" type="range" min="50" max="2000" step="10" value="300" aria-label="Number of students">
+          <div class="calc-scale"><span>50</span><span>2,000</span></div>
+        </div>
+        <p class="calc-foot">Based on measured results at Saint Michael the Archangel Parochial School, San Miguel, Iloilo.</p>
+        <a href="#demo" class="calc-cta">See it with your school's own numbers →</a>
+      </div>
+      <div class="calc-cards">
+        <div class="calc-card">
+          <div class="calc-card-value" id="calc-hours">1,440</div>
+          <div class="calc-card-label">Hours returned to teaching a year</div>
+          <div class="calc-card-sub">~30 hrs saved per teacher each quarter, across four quarters</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-card-value" id="calc-weeks">36.0</div>
+          <div class="calc-card-label">Full work-weeks recovered</div>
+          <div class="calc-card-sub">The same hours, counted in 40-hour weeks</div>
+        </div>
+        <div class="calc-card">
+          <div class="calc-card-value" id="calc-cards">30</div>
+          <div class="calc-card-label">Report cards fixed before parents see them</div>
+          <div class="calc-card-sub">From an 8&ndash;12% error rate — now near zero</div>
+        </div>
+        <div class="calc-card calc-card-chip">
+          <div class="calc-chip-line">Enrollment processing</div>
+          <div class="calc-chip-big">1&ndash;2 weeks <span>→</span> 3&ndash;4 days</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ DEMO CTA ============ -->
   <section id="demo" class="demo">
     <div class="demo-grid">
-      <div class="demo-copy">
+      <div class="demo-copy reveal">
         <div class="eyebrow eyebrow-accent">Request a demo</div>
         <h2 class="demo-h2">See SMAPS with your school's own scenarios</h2>
         <p class="demo-p">A 30-minute guided walkthrough of enrollment, grading, and billing — tailored to a school your size, with a data migration plan included.</p>
@@ -262,7 +310,7 @@
         </div>
       </div>
 
-      <div class="form-card">
+      <div class="form-card reveal">
         <div id="demo-form" class="form-fields">
           <div class="field">
             <div class="field-label">FULL NAME</div>
@@ -287,6 +335,8 @@
               <option value="teacher">Teacher</option>
             </select>
           </div>
+          <!-- honeypot: real users never fill this; bots that do are rejected -->
+          <input type="text" id="f-honey" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div id="form-error" class="form-error" hidden></div>
           <button id="demo-submit" type="button" class="btn-submit">Request a demo</button>
           <div class="form-note">We reply within one business day. No spam, ever.</div>
@@ -323,5 +373,6 @@
 
   <script src="js/form.js"></script>
   <script src="js/lightbox.js"></script>
+  <script src="js/animate.js"></script>
 </body>
 </html>
