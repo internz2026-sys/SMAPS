@@ -371,8 +371,8 @@ input, select { font-family: var(--font-body); }
 }
 .story-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 40px 30px;
   margin-top: 64px;
   padding-top: 48px;
   border-top: 1px solid var(--border);
@@ -694,4 +694,19 @@ html.js-anim .hero-actions { animation-delay: .60s; }
   .reveal, .reveal-group > * { opacity: 1 !important; transform: none !important; transition: none !important; }
   html.js-anim .hero-eyebrow, html.js-anim .hero-h1, html.js-anim .hero-sub, html.js-anim .hero-actions { opacity: 1 !important; animation: none !important; }
   html.js-anim .hero-bg { animation: none !important; }
+}
+
+/* ============ WHAT MAKES IT DIFFERENT ============ */
+.diff { max-width: var(--maxw); margin: 0 auto; padding: 110px var(--pad) 0; }
+.diff-head { text-align: center; margin-bottom: 48px; }
+.diff-head .eyebrow { margin-bottom: 16px; }
+.diff-intro { font-size: 15px; color: var(--gray-1); margin: 14px auto 0; max-width: 48ch; }
+.diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.diff-card { border: 1px solid var(--border); border-top: 3px solid var(--action); border-radius: var(--radius); padding: 32px 28px; background: #fff; }
+.diff-title { font-family: var(--font-heading); font-size: 22px; font-weight: 600; color: var(--ink); line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.3px; }
+.diff-desc { font-size: 14.5px; line-height: 1.65; color: var(--gray-1); margin: 0; text-wrap: pretty; }
+.diff-desc em { font-style: italic; color: var(--action); }
+@media (max-width: 1024px) {
+  .diff { padding-top: 84px; }
+  .diff-grid { grid-template-columns: 1fr; gap: 20px; }
 }
