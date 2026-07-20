@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMAPS — Day One</title>
+  <meta name="description" content="How SMAPS started: one locked computer, a borrowed flash drive, and a school that quietly came online.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='7'%20fill='%230F2447'/%3E%3Ctext%20x='16'%20y='23'%20text-anchor='middle'%20font-family='Georgia,serif'%20font-size='19'%20font-weight='700'%20fill='white'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Public+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0F2447; --action:#1D5FBF; --action-hover:#164A96; --tint:#E8F0FC;
+      --bg:#FDFDFC; --ink:#141D2E; --gray-1:#4A5A75; --gray-2:#5B6B85; --gray-3:#9AA7BC;
+      --border:#E5E9F0; --trust-label:#B9C7DE;
+      --serif:'Source Serif 4', Georgia, serif;
+      --sans:'Public Sans', system-ui, -apple-system, sans-serif;
+      --col:660px; --wide:1040px; --pad:24px;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+
+    .eyebrow { font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--action); }
+
+    /* header */
+    .site { border-bottom:1px solid var(--border); }
+    .site-inner { max-width:var(--wide); margin:0 auto; padding:20px var(--pad); display:flex; align-items:center; gap:12px; }
+    .brand { display:flex; align-items:center; gap:11px; }
+    .mark { width:32px; height:32px; border-radius:7px; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; font-family:var(--serif); flex:none; }
+    .brand-name { font-weight:700; font-size:16px; letter-spacing:0.4px; }
+    .site-label { margin-left:auto; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray-3); }
+
+    /* article shell */
+    .story { padding:0 var(--pad); }
+    .col { max-width:var(--col); margin-left:auto; margin-right:auto; }
+    .wide { max-width:var(--wide); margin-left:auto; margin-right:auto; }
+
+    /* lede */
+    .lede { padding:76px 0 8px; text-align:center; }
+    .lede .eyebrow { margin-bottom:22px; }
+    .lede h1 { font-family:var(--serif); font-weight:600; font-size:clamp(34px, 5.4vw, 54px); line-height:1.1; letter-spacing:-0.4px; margin:0 auto 26px; max-width:16ch; text-wrap:balance; }
+    .intro { font-family:var(--serif); font-size:21px; line-height:1.7; color:var(--gray-1); margin:0 auto; max-width:52ch; text-wrap:pretty; }
+
+    /* narrative paragraphs */
+    .beat { font-family:var(--serif); font-size:22px; line-height:1.75; color:var(--ink); margin:56px auto; text-wrap:pretty; }
+    .beat .lead-cap { font-weight:700; }
+
+    /* figures */
+    figure { margin:0; }
+    .story figure img {
+      display:block; width:auto; max-width:100%; height:auto;
+      border:1px solid var(--border); border-radius:3px;
+      box-shadow:0 22px 56px rgba(15,36,71,0.12);
+    }
+    figcaption { font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray-3); margin-top:14px; text-align:center; }
+
+    /* single wide photo (portrait) */
+    .solo { margin:64px auto; text-align:center; }
+    .solo img { max-height:640px; margin:0 auto; }
+
+    /* photo pairs */
+    .pair { margin:64px auto; display:flex; gap:22px; justify-content:center; align-items:flex-start; flex-wrap:wrap; }
+    .pair figure { display:flex; flex-direction:column; align-items:center; }
+    .pair figure img { max-height:470px; }
+
+    /* closing band */
+    .closing { background:var(--navy); margin-top:80px; padding:96px var(--pad); }
+    .closing .col { text-align:center; }
+    .closing-lead { font-family:var(--serif); font-size:clamp(22px, 3vw, 28px); line-height:1.5; color:rgba(255,255,255,0.94); margin:0 0 28px; text-wrap:balance; }
+    .closing-tag { font-family:var(--serif); font-size:20px; line-height:1.5; color:var(--trust-label); margin:0; }
+    .closing-tag em { display:block; margin-top:6px; font-style:italic; font-size:clamp(24px, 3.4vw, 32px); font-weight:600; color:#fff; letter-spacing:-0.2px; }
+
+    /* footer */
+    .site-footer { border-top:1px solid var(--border); max-width:var(--wide); margin:0 auto; padding:32px var(--pad); display:flex; align-items:center; gap:12px; }
+    .site-footer .mark { width:26px; height:26px; font-size:12px; border-radius:6px; }
+    .site-footer span { font-size:12.5px; color:var(--gray-3); }
+
+    /* scroll reveal (disabled under reduced-motion) */
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } }
+
+    /* mobile */
+    @media (max-width:680px) {
+      :root { --pad:20px; }
+      .lede { padding:52px 0 4px; }
+      .intro { font-size:19px; }
+      .beat { font-size:20px; margin:44px auto; }
+      .pair { flex-direction:column; gap:28px; margin:44px auto; }
+      .pair figure img { max-height:none; width:100%; }
+      .solo img { max-height:none; width:100%; }
+      .closing { padding:72px var(--pad); margin-top:56px; }
+    }
+
+    /* chapter nav */
+    .chapter-nav { max-width:var(--wide); margin:0 auto; padding:40px var(--pad); text-align:right; }
+    .chapter-link { display:inline-flex; flex-direction:column; gap:4px; text-decoration:none; }
+    .chapter-link .cn-kicker { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gray-3); }
+    .chapter-link .cn-title { font-family:var(--serif); font-size:19px; font-weight:600; color:var(--action); }
+    .chapter-link:hover .cn-title { color:var(--action-hover); }
+  </style>
+</head>
+<body>
+
+  <header class="site">
+    <div class="site-inner">
+      <div class="brand">
+        <div class="mark">S</div>
+        <span class="brand-name">SMAPS</span>
+      </div>
+      <div class="site-label">Our Story</div>
+    </div>
+  </header>
+
+  <article class="story">
+    <header class="lede col">
+      <div class="eyebrow">Day One</div>
+      <h1>The whole thing started with one locked computer.</h1>
+      <p class="intro">The first order of the day was a long ride south. A school was waiting for us. So was a problem. The one computer that would run everything was locked, and the password was gone. So was the man who knew it.</p>
+    </header>
+
+    <figure class="solo reveal">
+      <img src="assets/1.jpg" alt="A teammate building a Windows boot drive on a laptop, older tower PCs on the shelf behind">
+      <figcaption>Building the boot drive · the morning's first small win</figcaption>
+    </figure>
+
+    <p class="beat col reveal">We didn't have the key. But one of us had a flash drive. On the first day, that turned out to be enough.</p>
+
+    <div class="pair reveal">
+      <figure>
+        <img src="assets/2.jpg" alt="Carrying the computer across the room to a better spot">
+        <figcaption>Carrying it to where it belonged</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/3.jpg" alt="Setting the monitor down on a wooden desk in the new spot">
+        <figcaption>Setting it down for good</figcaption>
+      </figure>
+    </div>
+
+    <p class="beat col reveal">So we started from nothing. We carried the machine to a better corner of the room, wiped it clean, and gave it a new password of its own.</p>
+
+    <div class="pair reveal">
+      <figure>
+        <img src="assets/4.jpg" alt="Hands on the keyboard at first boot, a Divine Mercy image on the wall above">
+        <figcaption>First boot</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/5.jpg" alt="Wiring the cables into the back of the machine">
+        <figcaption>Wiring it to life</figcaption>
+      </figure>
+    </div>
+
+    <p class="beat col reveal">Then we connected the cables and waited for the light. A fan turned. A screen woke up. In a small office in the province, a school quietly came online.</p>
+  </article>
+
+  <section class="closing">
+    <div class="col">
+      <p class="closing-lead">There were no banners that day. No speeches. Just a few of us, a borrowed flash drive, and a computer that finally said yes.</p>
+      <p class="closing-tag">That is where it started.<em>The quiet system behind a well-run school.</em></p>
+    </div>
+  </section>
+
+  <nav class="chapter-nav">
+    <a class="chapter-link" href="day-two/index.html">
+      <span class="cn-kicker">Next chapter →</span>
+      <span class="cn-title">Then the others came.</span>
+    </a>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="mark">S</div>
+    <span>SMAPS · School Management AI Powered System · © 2026</span>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (el) { el.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
