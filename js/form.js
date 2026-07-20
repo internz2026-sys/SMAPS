@@ -20,6 +20,7 @@
   var nameEl      = document.getElementById('f-name');
   var emailEl     = document.getElementById('f-email');
   var schoolEl    = document.getElementById('f-school');
+  var addressEl   = document.getElementById('f-address');
   var roleEl      = document.getElementById('f-role');
   var honeyEl     = document.getElementById('f-honey');
   var submitBtn   = document.getElementById('demo-submit');
@@ -36,7 +37,7 @@
     successEl.hidden = false;
   }
 
-  [nameEl, emailEl, schoolEl, roleEl].forEach(function (el) {
+  [nameEl, emailEl, schoolEl, addressEl, roleEl].forEach(function (el) {
     el.addEventListener('input', clearError);
     el.addEventListener('change', clearError);
   });
@@ -44,8 +45,9 @@
   submitBtn.addEventListener('click', function () {
     var name   = nameEl.value.trim();
     var email  = emailEl.value.trim();
-    var school = schoolEl.value.trim();
-    var role   = roleEl.value;
+    var school  = schoolEl.value.trim();
+    var address = addressEl.value.trim();
+    var role    = roleEl.value;
 
     if (!name || !email || !school) {
       showError('Please fill in your name, email, and school name.');
@@ -69,6 +71,7 @@
         name: name,
         email: email,
         school: school,
+        address: address || 'Not specified',
         role: ROLE_LABELS[role] || 'Not specified',
         _subject: 'SMAPS demo request — ' + school,
         _template: 'table',
@@ -90,6 +93,7 @@
     nameEl.value = '';
     emailEl.value = '';
     schoolEl.value = '';
+    addressEl.value = '';
     roleEl.value = '';
     if (honeyEl) honeyEl.value = '';
     submitBtn.disabled = false;
